@@ -1,0 +1,22 @@
+{ 
+  "name" : "nativescript-ddp-client",
+  "version": "0.1.0",
+  "main" : "nativescript-ddp-client.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blagoev/nativescript-ddp-client"
+  },
+  "author": "Blagoev",
+  "license": "Apache",
+  "nativescript": {
+    "platforms": {
+      "ios": "1.5.0",
+      "android": "1.5.0"
+    }
+  },
+  "dependencies": {
+    "nativescript-websockets": "git+https://github.com/lyonzy/nativescript-websockets.git",
+    "ddp-underscore-patched": "0.8.1-2",
+    "ddp-ejson": "git+https://github.com/blagoev/ddp-ejson"
+  }
+}
