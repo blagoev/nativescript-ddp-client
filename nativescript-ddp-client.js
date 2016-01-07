@@ -575,12 +575,14 @@ DDPClient.prototype.removeListener = function (event, callback) {
 DDPClient.prototype.emit = function(event, data) {
    
    var eventCallbacks = this._callbacks[event];
-   for (var i = 0; i < eventCallbacks.length; i++) {
-       if (eventCallbacks[i].thisArg) {
-           eventCallbacks[i].callback.apply(eventCallbacks[i].thisArg, [data]);
-       } else {
-           eventCallbacks[i].callback.apply(this, [data]);
-       }
+   if (eventCallbacks !== undefined) {
+     for (var i = 0; i < eventCallbacks.length; i++) {
+         if (eventCallbacks[i].thisArg) {
+             eventCallbacks[i].callback.apply(eventCallbacks[i].thisArg, [data]);
+         } else {
+             eventCallbacks[i].callback.apply(this, [data]);
+         }
+     }
    }
 };
 
