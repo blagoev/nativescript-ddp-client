@@ -575,6 +575,11 @@ DDPClient.prototype.removeListener = function (event, callback) {
 DDPClient.prototype.emit = function(event, data) {
    
    var eventCallbacks = this._callbacks[event];
+   if (!eventCallbacks)
+   {
+     return;
+   }
+   
    for (var i = 0; i < eventCallbacks.length; i++) {
        if (eventCallbacks[i].thisArg) {
            eventCallbacks[i].callback.apply(eventCallbacks[i].thisArg, [data]);
